@@ -11,16 +11,17 @@ const PORT = process.env.PORT || 3001; // Port for the backend server
 // --- CORS Configuration ---
 // Configure CORS to allow requests from your frontend
 const corsOptions = {
-    // Add your Netlify URL here. Keep localhost for local dev.
-    origin: [
-        'http://localhost:5173', // For local frontend development
-        'https://snpvite.netlify.app/' // REPLACE with your actual Netlify app URL
-    ],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, 
-    optionsSuccessStatus: 204
+  origin: [
+    'http://localhost:5173',
+    'https://snpvite.netlify.app'
+  ],
+  methods: ['GET','HEAD','PUT','PATCH','POST','DELETE'],
+  credentials: true,
+  allowedHeaders: ['Authorization','Content-Type','Accept'],
+  optionsSuccessStatus: 204
 };
 app.use(cors(corsOptions));
+
 
 // Middleware to parse JSON bodies
 app.use(express.json());
